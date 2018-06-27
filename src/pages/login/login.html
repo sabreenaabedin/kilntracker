@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button (click)="login()"> Login </button>
+    </ion-item>
+
+    <ion-item>
+      <a (click)="register()">Don't have an account?</a>
+    </ion-item>
+    <ion-item>
+      <a (click)="forgotPassword()">Forgot Password?</a>
+    </ion-item>
+  </ion-list>
+</ion-content>

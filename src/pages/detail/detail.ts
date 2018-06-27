@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Ceramic } from '../../models/ceramic';
 
 /**
  * Generated class for the DetailPage page.
@@ -14,7 +15,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
 
+  ceramic: Ceramic;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ceramic = this.navParams.get("ceramic");
   }
 
   ionViewDidLoad() {
