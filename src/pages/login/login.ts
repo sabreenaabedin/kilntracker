@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { RegisterPage } from '../register/register';
+import { ListPage } from '../list/list';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,7 +17,11 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
+  email: string;
+  password: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
@@ -23,8 +29,42 @@ export class LoginPage {
   }
 
   login() {
-    // Our username and password (on this) should have data from the user
-    this.navCtrl.setRoot(HomePage);
+      if (this.validPassword() && this.validUsername()) {
+        this.navCtrl.setRoot(ListPage);
+      }
+  }
+
+
+
+  validPassword(): boolean {
+    var isValid = false;
+    if (!this.password) {
+      alert("Please enter a password");
+    } else {
+      isValid = true;
+    }
+
+    return isValid;
+  };
+
+  validUsername(): boolean {
+    var isValid = false;
+    if (!this.email) {
+      alert("Please enter an email address");
+    } else if (!(this.email.includes("@") && this.email.includes("."))) {
+      alert("Please enter a valid email address");
+    } else {
+      isValid = true;
+    }
+    return isValid;
+  }
+
+  register() {
+    this.navCtrl.push(RegisterPage)
+  }
+
+  forgotPassword() {
+    alert("oops");
   }
 
 }

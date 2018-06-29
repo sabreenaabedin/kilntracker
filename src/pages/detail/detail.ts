@@ -16,6 +16,8 @@ import { Ceramic } from '../../models/ceramic';
 export class DetailPage {
 
   ceramic: Ceramic;
+  glaze: string;
+  location: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ceramic = this.navParams.get("ceramic");

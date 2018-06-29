@@ -13,9 +13,6 @@
       {{ceramic.name}}
     </ion-item>
     <ion-item>
-
-    </ion-item>
-    <ion-item>
       <ion-slides>
         <ion-slide>
           <h1>Slide 1</h1>
@@ -29,7 +26,24 @@
       </ion-slides>
     </ion-item>
     <ion-item>
-      Location
+      <ion-label>Tracking</ion-label>
+      <ion-select [(ngModel)]="location" multiple="false" cancelText="Cancel" okText="Select">
+        <ion-option value="Bisque">Bisque</ion-option>
+        <ion-option value="Glaze">Glaze</ion-option>
+        <ion-option value="Greenware" selected="true">Greenware</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Glaze</ion-label>
+      <ion-select [(ngModel)]="glaze" multiple="true" cancelText="Cancel" okText="Select">
+        <ion-option value="Black">Black</ion-option>
+        <ion-option value="White">White</ion-option>
+        <ion-option value="Matte Blue">Matte Blue</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      {{glaze}}
     </ion-item>
   </ion-list>
 </ion-content>
