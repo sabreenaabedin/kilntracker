@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 import { Ceramic } from '../../models/ceramic';
+import { ListService } from '../../services/ceramic.service';
 
 @Component({
   selector: 'page-list',
@@ -12,29 +13,17 @@ export class ListPage {
 
   public ceramics: Array<Ceramic> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // this.ceramic = navParams.get('ceramic');
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public listService: ListService
+  ) {
 
-    this.ceramics = [];
-    this.ceramics.push({
-      id: 1,
-      name: 'Wheel thrown bowl',
-      description: "made at City Clay in Charlottesville",
-      slideshow: ['../assets/imgs/image1', '../assets/imgs/image2']
-    });
-    this.ceramics.push({
-      id: 2,
-      name: 'Coffee imprint mug',
-      description: "made at City Clay in Charlottesville",
-      slideshow: ['../assets/imgs/image1', '../assets/imgs/image2']
-    });
-    this.ceramics.push({
-      id: 3,
-      name: 'Windowsill planter',
-      description: "made at City Clay in Charlottesville",
-      slideshow: ['../assets/imgs/image1', '../assets/imgs/image2']
-    });
+  }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProductsPage');
+    this.ceramics = this.listService.getAllCeramics();
   }
 
   itemTapped(event, ceramic) {

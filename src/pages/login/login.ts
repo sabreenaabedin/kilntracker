@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { ListPage } from '../list/list';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-login',
@@ -33,8 +25,6 @@ export class LoginPage {
         this.navCtrl.setRoot(ListPage);
       }
   }
-
-
 
   validPassword(): boolean {
     var isValid = false;

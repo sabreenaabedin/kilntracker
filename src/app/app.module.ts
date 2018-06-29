@@ -12,7 +12,7 @@ import { DetailPage } from '../pages/detail/detail';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { SettingsPage } from '../pages/settings/settings';
-import { ProfilePage } from '../pages/profile/profile';
+import { ListService } from '../services/ceramic.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { ProfilePage } from '../pages/profile/profile';
     RegisterPage,
     LoginPage,
     SettingsPage,
-    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -38,11 +37,11 @@ import { ProfilePage } from '../pages/profile/profile';
     RegisterPage,
     LoginPage,
     SettingsPage,
-    ProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ListService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
