@@ -7,6 +7,10 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
+        <h5>Select a file for upload:</h5>
+        <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+    </ion-item>
+    <ion-item>
       {{ceramic.id}}
     </ion-item>
     <ion-item>
@@ -47,7 +51,7 @@
       Height
     </ion-item>
     <ion-item>
-      Notes
+      Description
     </ion-item>
   </ion-list>
 </ion-content>

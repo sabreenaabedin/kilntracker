@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { DetailPage } from '../pages/detail/detail';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
@@ -27,6 +28,13 @@ import { ListService } from '../services/ceramic.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyDyFpG8s2QDgVh2UMIZJGCGmpmhLH9rebM",
+      authDomain: "kiln-6c7af.firebaseapp.com",
+      storageBucket: "kiln-6c7af.appspot.com",
+      projectId: "kiln-6c7af",
+    }),
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

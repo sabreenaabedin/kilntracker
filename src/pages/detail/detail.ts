@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Ceramic } from '../../models/ceramic';
-
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 @Component({
   selector: 'page-detail',
@@ -19,14 +13,36 @@ export class DetailPage {
   glaze: string;
   location: string;
   slides: Array<string>;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  downloadURL: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afStorage: AngularFireStorage) {
     this.ceramic = this.navParams.get("ceramic");
     this.slides = this.ceramic.slideshow;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPage');
+  }
+
+  upload(event) {
+    if (!event.target.files) return;
+    
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
+    
+    this.task.snapshotChanges().subscribe(
+      result => {
+        result.ref.getDownloadURL().then(dl => {
+          this.downloadURL = dl;
+          console.log(this.downloadURL);
+        }).catch(err => {
+          console.log(err);
+        });
+      }
+    )
   }
 
 }

@@ -3,5 +3,8 @@ export class Ceramic {
     name: string;
     description: string;
     slideshow: string[];
-
+    tracking: string;
+    weight: number;
+    height: number;
+    glaze: string;
 }
