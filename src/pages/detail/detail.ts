@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Ceramic } from '../../models/ceramic';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import { Observable } from 'rxjs/Observable';
+//import '~bootstrap/dist/css/bootstrap.min.css';
+import { map } from 'rxjs/operators/map';
 
 @Component({
   selector: 'page-detail',
@@ -15,7 +18,10 @@ export class DetailPage {
   slides: Array<string>;
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
-  downloadURL: any;
+  downloadURL: string;
+  uploadProgress: Observable<number>;
+  uploadState: Observable<string>;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afStorage: AngularFireStorage) {
     this.ceramic = this.navParams.get("ceramic");
@@ -26,23 +32,24 @@ export class DetailPage {
     console.log('ionViewDidLoad DetailPage');
   }
 
-  upload(event) {
-    if (!event.target.files) return;
-    
-    const id = Math.random().toString(36).substring(2);
-    this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(event.target.files[0]);
-    
+  getURL() {
+    // this.ref.getDownloadURL().then(dl => { this.downloadURL = dl;});
     this.task.snapshotChanges().subscribe(
       result => {
         result.ref.getDownloadURL().then(dl => {
           this.downloadURL = dl;
           console.log(this.downloadURL);
-        }).catch(err => {
-          console.log(err);
         });
-      }
-    )
-  }
+      })
+      alert( "url? " + this.downloadURL);
+    }
 
+  upload(event) {
+    if (!event.target.files) return;
+
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
+    this.uploadProgress = this.task.percentageChanges();
+  }
 }

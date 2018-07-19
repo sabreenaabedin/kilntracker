@@ -7,8 +7,27 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
+      <div>
         <h5>Select a file for upload:</h5>
         <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+      </div>
+      <div>
+        <progress max="100" [value]="(uploadProgress | async)"></progress>
+      </div>
+      <div>
+        <button ion-button (click)="task.pause()">Pause</button>
+        <button ion-button (click)="task.cancel()">Cancel</button>
+        <button ion-button (click)="task.resume()">Resume</button>
+      </div>
+    </ion-item>
+    <ion-item>
+        <button ion-button (click)="getURL()">get URL</button>
+      File upload here:
+      <!-- <div *ngIf="downloadURL | async; let downloadSrc"> -->
+        <div *ngIf="downloadURL">
+        File uploaded:
+        <a [href]="downloadSrc">{{downloadSrc}}</a>
+      </div>
     </ion-item>
     <ion-item>
       {{ceramic.id}}
@@ -16,14 +35,18 @@
     <ion-item>
       {{ceramic.name}}
     </ion-item>
-    <ion-item >
+    <!-- <ion-item >
       <ion-slides>
         <ion-slide *ngFor="let slide of slides">
           <h1>Slide 1</h1>
-          <img src={{ceramic.slideshow[0]}}>
+          <img src="gs://kiln-6c7af.appspot.com/z7s3mijloxc">
         </ion-slide>
+        <ion-slide *ngFor="let slide of slides">
+            <h1>Slide 1</h1>
+            <img src="https://firebasestorage.googleapis.com/v0/b/kiln-6c7af.appspot.com/o/z7s3mijloxc?alt=media&token=2b59d148-761c-49f0-a267-42697f20a64b">
+          </ion-slide>
       </ion-slides>
-    </ion-item>
+    </ion-item> -->
     <ion-item>
       <ion-label>Tracking</ion-label>
       <ion-select [(ngModel)]="location" multiple="false" cancelText="Cancel" okText="Select">
