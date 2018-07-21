@@ -14,8 +14,16 @@ export class LoginPage {
   password: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private http: Http) {
+   
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+
+  login() {
     this.http
-    .get("http://localhost:3000/users/" + 1)
+    .get("http://localhost:3000/users/" + this.email)
     .subscribe(
         result => {
             console.log("/user response: " + result);
@@ -24,13 +32,6 @@ export class LoginPage {
             console.log(error);
         }
     );
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
-  login() {
       if (this.validPassword() && this.validUsername()) {
         this.navCtrl.setRoot(ListPage);
       }
