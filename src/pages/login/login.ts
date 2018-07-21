@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { ListPage } from '../list/list';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-login',
@@ -12,8 +13,17 @@ export class LoginPage {
   email: string;
   password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private http: Http) {
+    this.http
+    .get("http://localhost:3000/users/" + 1)
+    .subscribe(
+        result => {
+            console.log("/user response: " + result);
+        },
+        error => {
+            console.log(error);
+        }
+    );
   }
 
   ionViewDidLoad() {

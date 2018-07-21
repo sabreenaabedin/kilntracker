@@ -10,10 +10,10 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let ceramic of ceramics" (click)="itemTapped($event, ceramic)">
-      <!-- <ion-icon [name]="ceramic.icon" item-start></ion-icon> -->
+      <ion-icon [name]="ceramic.icon" item-start></ion-icon>
       {{ceramic.name}}
       <div class="item-note" item-end>
-        {{ceramic.id}}
+      {{ceramic.id}}
       </div>
     </button>
   </ion-list>
