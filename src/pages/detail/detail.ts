@@ -3,8 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Ceramic } from '../../models/ceramic';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
-//import '~bootstrap/dist/css/bootstrap.min.css';
-import { map } from 'rxjs/operators/map';
+// //import '~bootstrap/dist/css/bootstrap.min.css';
+// import { map } from 'rxjs/operators/map';
 
 @Component({
   selector: 'page-detail',
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators/map';
 })
 export class DetailPage {
 
-  ceramic: Ceramic;
+  ceramic: Ceramic = new Ceramic();
   glaze: string;
   location: string;
   slides: Array<string>;
@@ -25,7 +25,6 @@ export class DetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afStorage: AngularFireStorage) {
     this.ceramic = this.navParams.get("ceramic");
-    this.slides = this.ceramic.slideshow;
   }
 
   ionViewDidLoad() {

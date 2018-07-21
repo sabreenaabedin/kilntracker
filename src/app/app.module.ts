@@ -5,6 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpModule } from "@angular/http";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,7 +14,6 @@ import { DetailPage } from '../pages/detail/detail';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { SettingsPage } from '../pages/settings/settings';
-import { ListService } from '../services/ceramic.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { ListService } from '../services/ceramic.service';
       storageBucket: "kiln-6c7af.appspot.com",
       projectId: "kiln-6c7af",
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,8 +50,7 @@ import { ListService } from '../services/ceramic.service';
   providers: [
     StatusBar,
     SplashScreen,
-    ListService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

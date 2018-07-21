@@ -2,28 +2,41 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 import { Ceramic } from '../../models/ceramic';
-import { ListService } from '../../services/ceramic.service';
+import { HttpErrors } from '@loopback/rest';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
 })
 export class ListPage {
   ceramic: Ceramic;
 
-  public ceramics: Array<Ceramic> = [];
+  public ceramics: Array<Ceramic>;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public listService: ListService
+    private http: Http
   ) {
-
+ 
+    this.http
+    .get("http://localhost:3000/ceramics")
+    .subscribe(
+        result => {
+            console.log("/ceramics response: " + result);
+            let list = result.json();
+            this.ceramics = list;
+        },
+        error => {
+            console.log(error);
+        }
+    );
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductsPage');
-    this.ceramics = this.listService.getAllCeramics();
   }
 
   itemTapped(event, ceramic) {
