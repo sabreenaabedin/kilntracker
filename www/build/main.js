@@ -49,17 +49,16 @@ var ListPage = /** @class */ (function () {
         });
     };
     ListPage.prototype.addNewItem = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__additem_additem__["a" /* AdditemPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__additem_additem__["a" /* AdditemPage */]);
     };
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-list',template:/*ion-inline-start:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addNewItem($event)">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title text-center>List</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n  <ion-list>\n    <button ion-item *ngFor="let ceramic of ceramics" (click)="itemTapped($event, ceramic)">\n      <ion-thumbnail item-start>\n        <img src="../../assets/imgs/pottery 2.png" padding>\n      </ion-thumbnail>\n      {{ceramic.name}}\n      <div class="item-note" item-end>\n        {{ceramic.id}}\n      </div>\n    </button>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/list/list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _c || Object])
     ], ListPage);
     return ListPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=list.js.map
@@ -310,9 +309,16 @@ var AdditemPage = /** @class */ (function () {
             alert("Something went wrong");
         });
     };
+    AdditemPage.prototype.save = function () {
+        alert("call post ceramics endpoint");
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__list_list__["a" /* ListPage */]);
+    };
+    AdditemPage.prototype.cancel = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__list_list__["a" /* ListPage */]);
+    };
     AdditemPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-additem',template:/*ion-inline-start:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/additem/additem.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>New Entry</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      Id\n    </ion-item>\n    <ion-item>\n      Name\n    </ion-item>\n    <ion-item>\n      <ion-label>Tracking</ion-label>\n      <ion-select [(ngModel)]="location" multiple="false" cancelText="Cancel" okText="Select">\n        <ion-option value="Bisque">Bisque</ion-option>\n        <ion-option value="Glaze">Glaze</ion-option>\n        <ion-option value="Greenware" selected="true">Greenware</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <ion-label>Glaze</ion-label>\n      <ion-select [(ngModel)]="glaze" multiple="true" cancelText="Cancel" okText="Select">\n        <ion-option value="Black">Black</ion-option>\n        <ion-option value="White">White</ion-option>\n        <ion-option value="Matte Blue">Matte Blue</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      Glaze\n    </ion-item>\n    <ion-item>\n      Weight\n    </ion-item>\n    <ion-item>\n      Height\n    </ion-item>\n    <ion-item>\n      Description\n    </ion-item>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/additem/additem.html"*/,
+            selector: 'page-additem',template:/*ion-inline-start:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/additem/additem.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>New Entry</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      Id\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="Username" [(ngModel)]="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Tracking</ion-label>\n      <ion-select [(ngModel)]="location" multiple="false" cancelText="Cancel" okText="Select">\n        <ion-option value="Bisque">Bisque</ion-option>\n        <ion-option value="Glaze">Glaze</ion-option>\n        <ion-option value="Greenware" selected="true">Greenware</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <ion-label>Glaze</ion-label>\n      <ion-select [(ngModel)]="glaze" multiple="true" cancelText="Cancel" okText="Select">\n        <ion-option value="Black">Black</ion-option>\n        <ion-option value="White">White</ion-option>\n        <ion-option value="Matte Blue">Matte Blue</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      Glaze\n    </ion-item>\n    <ion-item>\n      Weight\n    </ion-item>\n    <ion-item>\n      Height\n    </ion-item>\n    <ion-item>\n      Description\n    </ion-item>\n  </ion-list>\n  <button ion-button full (click)="save()">Save</button>\n  <button ion-button full (click)="cancel()">Cancel</button>\n</ion-content>'/*ion-inline-end:"/Users/sabreenaabedin/Desktop/code/kiln/kilntracker/src/pages/additem/additem.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _c || Object])
     ], AdditemPage);

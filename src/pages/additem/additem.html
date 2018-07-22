@@ -11,7 +11,7 @@
       Id
     </ion-item>
     <ion-item>
-      Name
+      <ion-input type="text" placeholder="Username" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Tracking</ion-label>
@@ -42,5 +42,6 @@
       Description
     </ion-item>
   </ion-list>
-
+  <button ion-button full (click)="save()">Save</button>
+  <button ion-button full (click)="cancel()">Cancel</button>
 </ion-content>

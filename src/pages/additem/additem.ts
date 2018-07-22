@@ -8,7 +8,7 @@ import { ListPage } from '../list/list';
   templateUrl: 'additem.html',
 })
 export class AdditemPage {
-
+  name: string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
@@ -33,6 +33,15 @@ export class AdditemPage {
             alert("Something went wrong");
           }
         );
+  }
+
+  save(){
+    alert("call post ceramics endpoint");
+    this.navCtrl.setRoot(ListPage);
+  }
+
+  cancel(){
+    this.navCtrl.setRoot(ListPage);
   }
 
 }

@@ -46,6 +46,6 @@ export class ListPage {
   }
 
   addNewItem(){
-    this.navCtrl.push(AdditemPage);
+    this.navCtrl.setRoot(AdditemPage);
   }
 }
