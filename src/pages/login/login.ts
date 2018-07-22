@@ -4,6 +4,7 @@ import { RegisterPage } from '../register/register';
 import { ListPage } from '../list/list';
 import { Http } from '@angular/http';
 import { User } from '../../models/user';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'page-login',
@@ -32,7 +33,8 @@ export class LoginPage {
           result => {
             console.log("/user response: " + result);
             foundUser = result.json();
-            if (foundUser.email == this.email && foundUser.password == this.password) {
+
+            if (bcrypt.compare(this.password, foundUser.password)) {
               this.navCtrl.setRoot(ListPage);
             } else {
               alert("Login information is incorrect");
