@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { User } from '../../models/user';
 import { LoginPage } from '../login/login';
 import { Http } from '@angular/http';
 
@@ -9,10 +8,10 @@ import { Http } from '@angular/http';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  user = new User();
-  email: string;
-  password: string;
-  confirmpassword: string;
+
+  private email: string = "";
+  private password: string = "";
+  private confirmpassword: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private http: Http) {
   }
@@ -24,14 +23,12 @@ export class RegisterPage {
   registerUser() {
 
     // MAKE SURE USER ISN'T ALREADY REGISTERED
-
-    this.user.email = this.email;
-    this.user.password = this.password;
     
     if (this.validPassword() && this.validUsername()) {
       this.http
       .post("http://localhost:3000/register", {
-        user: this.user
+        email: this.email,
+        password: this.password
       })
       .subscribe(
           result => {
@@ -44,7 +41,10 @@ export class RegisterPage {
           }
       );
 
+    } else {
+      alert("invalid username or password");
     }
+  
   }
 
   validPassword(): boolean {
