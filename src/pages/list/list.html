@@ -3,17 +3,26 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNewItem($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>List</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let ceramic of ceramics" (click)="itemTapped($event, ceramic)">
-      <ion-icon [name]="ceramic.icon" item-start></ion-icon>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/pottery 2.png" padding>
+      </ion-thumbnail>
       {{ceramic.name}}
       <div class="item-note" item-end>
-      {{ceramic.id}}
+        {{ceramic.id}}
       </div>
     </button>
   </ion-list>

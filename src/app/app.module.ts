@@ -13,6 +13,7 @@ import { DetailPage } from '../pages/detail/detail';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { SettingsPage } from '../pages/settings/settings';
+import { AdditemPage } from '../pages/additem/additem';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SettingsPage } from '../pages/settings/settings';
     RegisterPage,
     LoginPage,
     SettingsPage,
+    AdditemPage
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { SettingsPage } from '../pages/settings/settings';
     RegisterPage,
     LoginPage,
     SettingsPage,
+    AdditemPage
   ],
   providers: [
     StatusBar,

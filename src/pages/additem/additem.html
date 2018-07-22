@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Entry</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      Id
+    </ion-item>
+    <ion-item>
+      Name
+    </ion-item>
+    <ion-item>
+      <ion-label>Tracking</ion-label>
+      <ion-select [(ngModel)]="location" multiple="false" cancelText="Cancel" okText="Select">
+        <ion-option value="Bisque">Bisque</ion-option>
+        <ion-option value="Glaze">Glaze</ion-option>
+        <ion-option value="Greenware" selected="true">Greenware</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Glaze</ion-label>
+      <ion-select [(ngModel)]="glaze" multiple="true" cancelText="Cancel" okText="Select">
+        <ion-option value="Black">Black</ion-option>
+        <ion-option value="White">White</ion-option>
+        <ion-option value="Matte Blue">Matte Blue</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      Glaze
+    </ion-item>
+    <ion-item>
+      Weight
+    </ion-item>
+    <ion-item>
+      Height
+    </ion-item>
+    <ion-item>
+      Description
+    </ion-item>
+  </ion-list>
+
+</ion-content>

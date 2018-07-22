@@ -3,13 +3,14 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 import { Ceramic } from '../../models/ceramic';
 import { Http } from '@angular/http';
+import { AdditemPage } from '../additem/additem';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
 })
 export class ListPage {
-  ceramic: Ceramic;
+  // ceramic: Ceramic;
 
   public ceramics: Array<Ceramic>;
 
@@ -42,5 +43,9 @@ export class ListPage {
     this.navCtrl.push(DetailPage, {
       ceramic: ceramic
     });
+  }
+
+  addNewItem(){
+    this.navCtrl.push(AdditemPage);
   }
 }
