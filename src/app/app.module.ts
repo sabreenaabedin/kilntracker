@@ -8,7 +8,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from "@angular/http";
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DetailPage } from '../pages/detail/detail';
 import { RegisterPage } from '../pages/register/register';
@@ -18,7 +17,6 @@ import { SettingsPage } from '../pages/settings/settings';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     ListPage,
     DetailPage,
     RegisterPage,
@@ -40,7 +38,6 @@ import { SettingsPage } from '../pages/settings/settings';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     ListPage,
     DetailPage,
     RegisterPage,

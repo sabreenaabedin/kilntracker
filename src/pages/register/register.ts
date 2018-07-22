@@ -10,8 +10,6 @@ import { Http } from '@angular/http';
 })
 export class RegisterPage {
   user = new User();
-  firstname: string;
-  lastname: string;
   email: string;
   password: string;
   confirmpassword: string;
@@ -24,10 +22,11 @@ export class RegisterPage {
   }
 
   registerUser() {
+
+    // MAKE SURE USER ISN'T ALREADY REGISTERED
+
     this.user.email = this.email;
     this.user.password = this.password;
-    this.user.firstname = this.firstname;
-    this.user.lastname = this.lastname;
     
     if (this.validPassword() && this.validUsername()) {
       this.http
@@ -37,12 +36,14 @@ export class RegisterPage {
       .subscribe(
           result => {
               console.log("/user response: " + result);
+              this.navCtrl.push(LoginPage);
           },
           error => {
               console.log(error);
+              alert("Something went wrong");
           }
       );
-      this.navCtrl.push(LoginPage);
+
     }
   }
 

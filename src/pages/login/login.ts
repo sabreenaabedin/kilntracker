@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { ListPage } from '../list/list';
 import { Http } from '@angular/http';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'page-login',
@@ -13,8 +14,8 @@ export class LoginPage {
   email: string;
   password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private http: Http) {
-   
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+
   }
 
   ionViewDidLoad() {
@@ -22,19 +23,29 @@ export class LoginPage {
   }
 
   login() {
-    this.http
-    .get("http://localhost:3000/users/" + this.email)
-    .subscribe(
-        result => {
+    let foundUser: User;
+    if (this.validPassword() && this.validUsername()) {
+
+      this.http
+        .get("http://localhost:3000/users/" + this.email)
+        .subscribe(
+          result => {
             console.log("/user response: " + result);
-        },
-        error => {
+            foundUser = result.json();
+            if (foundUser.email == this.email && foundUser.password == this.password) {
+              this.navCtrl.setRoot(ListPage);
+            } else {
+              alert("Login information is incorrect");
+            }
+          },
+          error => {
             console.log(error);
-        }
-    );
-      if (this.validPassword() && this.validUsername()) {
-        this.navCtrl.setRoot(ListPage);
-      }
+            alert("Login information incorrect");
+          }
+        );
+
+
+    }
   }
 
   validPassword(): boolean {
