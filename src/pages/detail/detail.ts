@@ -51,4 +51,8 @@ export class DetailPage {
     this.task = this.ref.put(event.target.files[0]);
     this.uploadProgress = this.task.percentageChanges();
   }
+
+  save(){
+    alert("write this function");
+  }
 }

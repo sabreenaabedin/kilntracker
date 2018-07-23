@@ -9,7 +9,12 @@ import { ListPage } from '../list/list';
 })
 export class AdditemPage {
   name: string;
-
+  id: number;
+  tracking: string;
+  glaze: string;
+  weight: number;
+  height: number;
+  description: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
   }
@@ -18,10 +23,17 @@ export class AdditemPage {
     console.log('ionViewDidLoad AdditemPage');
   }
 
-  addItem(){
+  save(){
     this.http
         .post("http://localhost:3000/ceramics", {
-
+            id: this.id,
+            name: this.name,
+            tracking: this.tracking,
+            glaze: this.glaze,
+            weight: this.weight,
+            height: this.height,
+            description: this.description,
+            photo: ""
         })
         .subscribe(
           result => {
@@ -33,10 +45,6 @@ export class AdditemPage {
             alert("Something went wrong");
           }
         );
-  }
-
-  save(){
-    alert("call post ceramics endpoint");
     this.navCtrl.setRoot(ListPage);
   }
 

@@ -33,7 +33,7 @@
       {{ceramic.id}}
     </ion-item>
     <ion-item>
-      {{ceramic.name}}
+        <ion-input type="text" placeholder="{{ceramic.name}}" [(ngModel)]="name"></ion-input>
     </ion-item>
     <!-- <ion-item >
       <ion-slides>
@@ -77,4 +77,5 @@
       Description
     </ion-item>
   </ion-list>
+  <button ion-button full (click)="save()">Save</button>
 </ion-content>

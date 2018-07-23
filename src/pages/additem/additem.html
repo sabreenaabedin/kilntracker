@@ -8,10 +8,10 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      Id
+      <ion-input type="text" placeholder="id" [(ngModel)]="id"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="Username" [(ngModel)]="name"></ion-input>
+      <ion-input type="text" placeholder="name" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Tracking</ion-label>
@@ -30,16 +30,13 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      Glaze
+        <ion-input type="text" placeholder="weight" [(ngModel)]="weight"></ion-input>
     </ion-item>
     <ion-item>
-      Weight
+        <ion-input type="text" placeholder="height" [(ngModel)]="height"></ion-input>
     </ion-item>
     <ion-item>
-      Height
-    </ion-item>
-    <ion-item>
-      Description
+        <ion-input type="text" placeholder="description" [(ngModel)]="description"></ion-input>
     </ion-item>
   </ion-list>
   <button ion-button full (click)="save()">Save</button>
