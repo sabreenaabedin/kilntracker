@@ -14,6 +14,7 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { SettingsPage } from '../pages/settings/settings';
 import { AdditemPage } from '../pages/additem/additem';
+import { SplashPage } from '../pages/splash/splash';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdditemPage } from '../pages/additem/additem';
     RegisterPage,
     LoginPage,
     SettingsPage,
-    AdditemPage
+    AdditemPage,
+    SplashPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { AdditemPage } from '../pages/additem/additem';
     RegisterPage,
     LoginPage,
     SettingsPage,
-    AdditemPage
+    AdditemPage,
+    SplashPage
   ],
   providers: [
     StatusBar,

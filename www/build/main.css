@@ -25677,3 +25677,105 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+page-splash .modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+page-splash .ios page-splash .scroll-content, page-splash .md page-splash .scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-splash .ios page-splash #bars, page-splash .md page-splash #bars {
+  height: 80%;
+}
+
+page-splash .ios page-splash #bars .cls-1, page-splash .md page-splash #bars .cls-1 {
+  opacity: 0;
+  -webkit-transform: rotate3d(1, 1, 0, 50deg);
+  transform: rotate3d(1, 1, 0, 50deg);
+  -webkit-animation: 1s 0.2s ease fadeInAndSpin;
+  animation: 1s 0.2s ease fadeInAndSpin;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+page-splash .ios page-splash #bars .cls-2, page-splash .md page-splash #bars .cls-2 {
+  opacity: 0;
+  -webkit-transform: rotate3d(1, 1, 0, 50deg);
+  transform: rotate3d(1, 1, 0, 50deg);
+  -webkit-animation: 1s 0.4s ease fadeInAndSpin;
+  animation: 1s 0.4s ease fadeInAndSpin;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+page-splash .ios page-splash #bars .cls-3, page-splash .md page-splash #bars .cls-3 {
+  opacity: 0;
+  -webkit-transform: rotate3d(1, 1, 0, 50deg);
+  transform: rotate3d(1, 1, 0, 50deg);
+  -webkit-animation: 1s 0.6s ease fadeInAndSpin;
+  animation: 1s 0.6s ease fadeInAndSpin;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+page-splash .ios page-splash #bars .cls-4, page-splash .md page-splash #bars .cls-4 {
+  opacity: 0;
+  -webkit-transform: rotate3d(1, 1, 0, 50deg);
+  transform: rotate3d(1, 1, 0, 50deg);
+  -webkit-animation: 1s 0.8s ease fadeInAndSpin;
+  animation: 1s 0.8s ease fadeInAndSpin;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+page-splash .ios page-splash #bars .cls-5, page-splash .ios page-splash #bars .cls-6, page-splash .md page-splash #bars .cls-5, page-splash .md page-splash #bars .cls-6 {
+  opacity: 0;
+  -webkit-animation: 2s 1.5s linear fadeIn;
+  animation: 2s 1.5s linear fadeIn;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeInAndSpin {
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+}
+
+@keyframes fadeInAndSpin {
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}

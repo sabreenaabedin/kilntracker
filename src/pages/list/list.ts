@@ -10,8 +10,6 @@ import { AdditemPage } from '../additem/additem';
   templateUrl: 'list.html',
 })
 export class ListPage {
-  // ceramic: Ceramic;
-
   public ceramics: Array<Ceramic>;
 
   constructor(
