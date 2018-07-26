@@ -7,5 +7,6 @@ export class Ceramic {
     weight: number;
     height: number;
     glaze: string;
-  //  date: Date
+    useremail: string;
+    date: Date
 }
